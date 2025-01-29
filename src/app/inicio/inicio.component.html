@@ -1,0 +1,61 @@
+<main class="container mt-5">
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      <h2>Cambia tus divisas al mejor precio en tiempo real</h2>
+      <p>Compra y vende con rapidez y confianza. ¡Hazlo ahora!</p>
+      <div class="d-flex justify-content-between p-4 bg-light rounded">
+        <div class="text-center">
+          <h5>Compra</h5>
+          <p class="fs-4 text-success">{{ rates[selectedBuyCurrency] | number:'1.2-2' }}</p>
+        </div>
+        <div class="text-center">
+          <h5>Venta</h5>
+          <p class="fs-4 text-danger">{{ rates[selectedSellCurrency] | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="p-4 bg-light rounded">
+        <h3>Convertidor de divisas</h3>
+
+        <!-- Mensaje de carga -->
+        <p *ngIf="isLoading" class="text-center text-info">Cargando tasas de cambio...</p>
+
+        <!-- Mensaje de error -->
+        <p *ngIf="hasError" class="text-center text-danger">Error al obtener datos. Intenta nuevamente.</p>
+
+        <!-- Mostrar formulario solo si no hay error -->
+        <form *ngIf="!isLoading && !hasError" (submit)="convertCurrency(); $event.preventDefault();">
+          <div class="mb-3">
+            <label for="sellCurrency" class="form-label">Moneda que tienes</label>
+            <select id="sellCurrency" class="form-select" [(ngModel)]="selectedSellCurrency" name="sellCurrency">
+              <option *ngFor="let currency of getCurrencyKeys()" [value]="currency">
+                {{ currency }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="buyCurrency" class="form-label">Moneda que deseas comprar</label>
+            <select id="buyCurrency" class="form-select" [(ngModel)]="selectedBuyCurrency" name="buyCurrency">
+              <option *ngFor="let currency of getCurrencyKeys()" [value]="currency">
+                {{ currency }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Monto</label>
+            <input type="number" id="amount" class="form-control" [(ngModel)]="amount" name="amount">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Calcular</button>
+        </form>
+
+        <!-- Mostrar el resultado solo si hay una conversión válida -->
+        <p class="mt-3" *ngIf="convertedAmount !== null">
+          <strong>{{ amount }}</strong> {{ selectedSellCurrency }} equivale a
+          <strong>{{ convertedAmount | number:'1.2-2' }}</strong> {{ selectedBuyCurrency }}.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
