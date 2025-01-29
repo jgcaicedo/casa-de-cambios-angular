@@ -1,59 +1,61 @@
-# CasaDeCambios
+# Casa de Cambios en Tiempo Real
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+Aplicación web desarrollada en **Angular** que permite a los usuarios realizar conversiones de divisas en tiempo real y visualizar casas de cambio cercanas en un mapa interactivo.
 
-## Development server
+## Tecnologías Utilizadas
 
-To start a local development server, run:
+- **Angular**: Framework de desarrollo frontend.
+- **Bootstrap** : Mejorar el diseño y adaptabilidad.
+- **Mapbox API**: Para mostrar ubicaciones de casas de cambio en un mapa interactivo.
+- **FreecurrencyAPI**: Para obtener tasas de conversión de divisas en tiempo real.
 
-```bash
-ng serve
-```
+## Imagenes 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![image](https://github.com/user-attachments/assets/b6c7eb2f-8f9d-4459-a723-930622fb9aec)
+![image](https://github.com/user-attachments/assets/7f00b927-77ac-437d-ad4e-8fed4e8a2ce9)
+![image](https://github.com/user-attachments/assets/8a581d4f-8e7a-447b-99b1-588b16846ffa)
 
-## Code scaffolding
+## Características
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Conversión de divisas en tiempo real.
+- Visualización de casas de cambio cercanas mediante un mapa interactivo.
+- Interfaz amigable y responsive.
+- Integración con APIs externas para datos actualizados.
 
-```bash
-ng generate component component-name
-```
+## Instalación y Configuración
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/nombre-del-repo.git
+   cd nombre-del-repo
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Configura las claves de las APIs:
+   - La API de **FreecurrencyAPI** se encuentra en `inicio.component.ts` bajo la variable `apikey`.
+   - La API de **Mapbox** se encuentra en `sede.component.ts` bajo la variable `accesstoken`.
+   
+4. Ejecuta la aplicación en modo desarrollo:
+   ```bash
+   ng serve
+   ```
 
-```bash
-ng generate --help
-```
+## Uso
 
-## Building
+1. Ingresa la cantidad y selecciona las divisas para la conversión.
+2. Visualiza el resultado en tiempo real.
+3. Explora el mapa para encontrar casas de cambio cercanas.
 
-To build the project run:
+## Contribución
 
-```bash
-ng build
-```
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`).
+3. Realiza los cambios y haz commit (`git commit -m 'Agrega nueva funcionalidad'`).
+4. Sube los cambios (`git push origin feature-nueva-funcionalidad`).
+5. Abre un Pull Request.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Autor
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Juan Guillermo Caicedo Delgado
