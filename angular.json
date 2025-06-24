@@ -25,31 +25,42 @@
                 "glob": "**/*",
                 "input": "public"
               }
-            ],
-            "styles": [
+            ],            "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "mapbox-gl"
             ]
 
           },
-          "configurations": {
-            "production": {
+          "configurations": {            "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true
             },
             "development": {
               "optimization": false,
@@ -98,5 +109,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "511d09e8-dd38-461e-af52-8f7025c44f61"
   }
 }
